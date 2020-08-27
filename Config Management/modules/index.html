@@ -1,0 +1,763 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.9">
+    
+    
+      
+        <title>Config Management Modules - OrcaScript</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.36ee6aaa.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#config-management-modules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="OrcaScript" class="md-header-nav__button md-logo" aria-label="OrcaScript">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OrcaScript
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Config Management Modules
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Welcome
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Syntax%20Guide/" class="md-tabs__link">
+          Syntax Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          Config Management
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Task%20Management/" class="md-tabs__link">
+          Task Management
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Event%20Management/" class="md-tabs__link">
+          Event Management
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OrcaScript" class="md-nav__button md-logo" aria-label="OrcaScript">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    OrcaScript
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome" class="md-nav__link">
+      Welcome
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Syntax Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Syntax Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Syntax Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Syntax%20Guide/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Config Management
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Config Management" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Config Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../state/" title="Declaritive State Definitions" class="md-nav__link">
+      Declaritive State Definitions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Config Management Modules
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Config Management Modules" class="md-nav__link md-nav__link--active">
+      Config Management Modules
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#config-management-categories" class="md-nav__link">
+    Config Management Categories
+  </a>
+  
+    <nav class="md-nav" aria-label="Config Management Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files--directories" class="md-nav__link">
+    Files &amp; Directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Task Management
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Task Management" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Task Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Task%20Management/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Event Management
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Event Management" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Event Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Event%20Management/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#config-management-categories" class="md-nav__link">
+    Config Management Categories
+  </a>
+  
+    <nav class="md-nav" aria-label="Config Management Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files--directories" class="md-nav__link">
+    Files &amp; Directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="config-management-modules">Config Management Modules<a class="headerlink" href="#config-management-modules" title="Permanent link"></a></h1>
+<h3 id="config-management-categories">Config Management Categories<a class="headerlink" href="#config-management-categories" title="Permanent link"></a></h3>
+<p>When you think about it, most config management task will fall within 1 of the following 3 categories.</p>
+<ul>
+<li>Packages</li>
+<li>Files / Directories</li>
+<li>Services</li>
+</ul>
+<h4 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link"></a></h4>
+<p>Automating the configuration of applications sometimes (ok, most times) requires installing some underlying packges. This is one of the primary use cases for other config management tools such as Puppet, Chef, Ansible, or SaltStack. They all handle it in slightly different ways, but being able to install, uninstall, and upgrade packages is a definite requirement of any configuration management system.</p>
+<p>In order to handle all package related tasks, Orcascript has a <code>package</code> module that ships with the stdlib. This means that there is nothing to import, or configure for managing package related tasks directly within Orcascript. Below are some examples of the methods provided by the <code>package</code> module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="p">.</span><span class="nx">install</span><span class="p">(</span><span class="s">&quot;&lt;packageName&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;pacakgeVersion&gt;&quot;</span><span class="p">)</span>
+<span class="kn">package</span><span class="p">.</span><span class="nx">installed</span><span class="p">(</span><span class="s">&quot;&lt;packageName&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;pacakgeVersion&gt;&quot;</span><span class="p">)</span>
+<span class="kn">package</span><span class="p">.</span><span class="nx">upgrade</span><span class="p">(</span><span class="s">&quot;&lt;packageName&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;pacakgeVersion&gt;&quot;</span><span class="p">)</span>
+<span class="kn">package</span><span class="p">.</span><span class="nx">uninstall</span><span class="p">(</span><span class="s">&quot;&lt;packageName&gt;&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Simple, right? Orcascript also provides a common absstraction layer on top of the underlying differences between Linux distros.
+So, no matter which (supported) version of linux you are running the script on, it will always run the same way.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you write your scripts in such a way that you are using package names that are specific to a given distro,
+then that particular statatement will fail on versions of linux that do not support that particular package name.</p>
+<p><strong>NOTE:</strong> This only matters if you want the same script to run on multiple distros. If you are only targeting a single
+platform, then this warning can be safely ignored.</p>
+<p>In such cases where you would like to support multiple distros with a single script, while still using specific package names and/or versions, you can always use the included <code>host</code> module to determine the underlying os. Then, simply switch based on <code>host.family</code> within your script, and provide the statement specific to that platform.</p>
+<p>Here is a psuedo snippet of what that could look like:
+<div class="highlight"><pre><span></span><code><span class="k">switch</span><span class="p">(</span><span class="nx">host</span><span class="p">.</span><span class="nx">family</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s">&quot;debian&quot;</span><span class="p">:</span>
+        <span class="kn">package</span><span class="p">.</span><span class="nx">install</span><span class="p">(</span><span class="s">&quot;&lt;specific debian/ubuntu pacakge&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;specific version (optional)&gt;&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s">&quot;rhel&quot;</span><span class="p">:</span>
+        <span class="kn">package</span><span class="p">.</span><span class="nx">install</span><span class="p">(</span><span class="s">&quot;&lt;specific rhel/centos pacakge&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;specific version (optional)&gt;&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s">&quot;alpine&quot;</span><span class="p">:</span>
+        <span class="kn">package</span><span class="p">.</span><span class="nx">install</span><span class="p">(</span><span class="s">&quot;&lt;specific alpine pacakge&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;&lt;specific version (optional)&gt;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+<h4 id="files--directories">Files &amp; Directories<a class="headerlink" href="#files--directories" title="Permanent link"></a></h4>
+<p>When configuring a box, it is almost always required to write a configuration file to a path eg.<code>/etc/someapp/somedir</code></p>
+<p>While other scripting languages provide this functionality, orcascript has went above and beyond to make this as easy
+as possible, with as little code as possible. 
+The orcascript stdlib ships with an <code>os</code> module that provides methods such as <code>isfile</code>, <code>isdir</code>, <code>mkdir</code>, <code>read</code>, <code>write</code>
+and many, many more, that will handle all of the the operations that come with managing a filesystem.</p>
+<p>In addition to the <code>os</code> module, the stdlib also ships with a <code>template</code> module that provides template related methods such as <code>render</code> that will allow scripts to easily render templated configuration files in their proper directories, with the desired contents in place. </p>
+<p>For example, if you needed to create a file, ie <code>/etc/some-app/some.conf</code>, you could use the <code>template</code> module like so:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// read in our example template file to a variable called &#39;tpl&#39;</span>
+<span class="nx">tpl</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s">&quot;/path/to/my/config.tpl&quot;</span><span class="p">)</span>
+
+<span class="c1">// define some example vars, </span>
+<span class="c1">// NOTE: you can load vars from many different sources.</span>
+<span class="c1">// NOTE: they don&#39;t have to be inline, like this.</span>
+<span class="nx">vars</span> <span class="o">:=</span> <span class="p">{</span>
+    <span class="s">&quot;somekey&quot;</span><span class="p">:</span> <span class="s">&quot;someval&quot;</span><span class="p">,</span>
+    <span class="s">&quot;someOtherKey&quot;</span><span class="p">:</span> <span class="s">&quot;someOtherVal&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">// once you have a template, and some vars, you can use the render method.</span>
+<span class="c1">// this will write the file to the specified path, with the desired values</span>
+<span class="c1">// injected into the formatted template.</span>
+<span class="nx">template</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">tpl</span><span class="p">,</span> <span class="nx">vars</span><span class="p">,</span> <span class="s">&quot;/etc/some-app/some.conf&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Orcascript strives very hard to make it easy to manage any file system related task that you might encounter while attempting to write automation.</p>
+<h4 id="services">Services<a class="headerlink" href="#services" title="Permanent link"></a></h4>
+<p>The final "general" category that configuration management tasks usually fall into are services.
+You may need to start, stop, restart or check the status of a given service. Orcascript makes this easy!
+Yep, you probably guessed it. The orcascript stdlib ships with a <code>service</code> module that exposes methods
+for each of those common operations.</p>
+<p>Orcascript also provides an additional abstraction layer across the various system managers.
+This includes, System V, systemd and others. </p>
+<p>Here are some examples of the methods that the <code>service</code> module provides:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">service</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">restart</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">enable</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">disable</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">isup</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">isdown</span><span class="p">(</span><span class="s">&quot;&lt;serviceName&gt;&quot;</span><span class="p">)</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav
+        class="md-footer-nav__inner md-grid"
+        aria-label="Footer"
+      >
+
+        <!-- Link to previous page -->
+        
+          <a
+            href="../state/"
+            title="Declaritive State Definitions"
+            class="md-footer-nav__link md-footer-nav__link--prev"
+            rel="prev"
+          >
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Declaritive State Definitions
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a
+            href="../../Task%20Management/"
+            title="Intro"
+            class="md-footer-nav__link md-footer-nav__link--next"
+            rel="next"
+          >
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Intro
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; OrcaTools 2020
+          </div>
+        
+        </a>
+      </div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
